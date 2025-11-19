@@ -1,3 +1,13 @@
+def load_tasks():
+    try:
+        with open("tasks.txt", "r", encoding="utf-8") as f:
+            return [line.strip() for line in f.readlines()]
+    except FileNotFoundError:
+        return []   
+def save_tasks(todo_list):
+    with open("tasks.txt", "w", encoding="utf-8") as f:
+        for task in todo_list:
+            f.write(task + "\n")
 def add_task(todo_list):
     """Prompts the user for a new task and adds it to the list."""
     task = input("Enter the new task: ").strip()
@@ -19,7 +29,7 @@ def view_tasks(todo_list):
 
 def main():
     """Main function to run the simple To-Do application."""
-    tasks = []
+    tasks = load_tasks()
 
     print("Welcome to the Simple Task Collector!")
     
