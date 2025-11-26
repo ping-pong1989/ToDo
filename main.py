@@ -1,7 +1,7 @@
-from tasks import add_task, view_tasks
+from tasks import add_task, view_tasks, load_tasks, save_tasks
 
 def main():
-    tasks = []
+    tasks = load_tasks()
 
     print("Welcome to the Simple Task Collector!")
 
@@ -15,13 +15,18 @@ def main():
 
         if choice == '1':
             add_task(tasks)
+            save_tasks(tasks)
         elif choice == '2':
             view_tasks(tasks)
         elif choice == '3':
-            print("Don't forget to do them all, you lazy ah")
+            save_tasks(tasks)
+            print("Don't forget to do them all!")
             break
         else:
             print("Invalid choice. Please enter 1, 2, or 3.")
 
+
 if __name__ == "__main__":
     main()
+
+
