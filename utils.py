@@ -1,7 +1,7 @@
-# Placeholder for utilities like logger
 import logging
+import requests  
 
-# Configure logger
+
 logging.basicConfig(
     filename="app.log",
     level=logging.INFO,
@@ -9,3 +9,11 @@ logging.basicConfig(
 )
 
 logger = logging.getLogger()
+
+
+def get_cat_fact():
+    try:
+        response = requests.get("https://catfact.ninja/fact")
+        return "🐱 Cat fact: " + response.json()["fact"]
+    except:
+        return "🐱 Cats are awesome!"

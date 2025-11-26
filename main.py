@@ -1,9 +1,12 @@
 from tasks import add_task, view_tasks, load_tasks, save_tasks
+from utils import get_cat_fact  
 
 def main():
     tasks = load_tasks()
 
     print("Welcome to the Simple Task Collector!")
+    print(get_cat_fact())  
+    print("-----------------------------")
 
     while True:
         print("\n--- Menu ---")
@@ -28,5 +31,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
